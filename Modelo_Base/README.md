@@ -75,8 +75,8 @@ O desenvolvimento foi realizado no notebook PDI_Project_Final.ipynb. Para reprod
 Abaixo os resultados típicos obtidos com a configuração de Alpha 0.25 e entrada de 64x64:
 
 | Métrica | Treino | Validação | Teste Externo |
-|---|---|---|---|
-| Accuracy | ~93.3% | ~93.5% | ~94.6% |
+|---------|--------|-----------|---------------|
+| Accuracy| ~94.49%| ~93.64%   |   ~96.56%     |
 
 O gap reduzido entre treino e validação indica que as técnicas de Data Augmentation e a arquitetura simplificada foram eficazes contra o overfitting.
 
@@ -85,11 +85,13 @@ O gap reduzido entre treino e validação indica que as técnicas de Data Augmen
 Para viabilizar a execução na ESP32-CAM, o modelo passou por um processo de quantização pós-treinamento (Post-Training Quantization):
 
 1. Formato Original (.keras): Aproximadamente 980 KB.
-2. Formato TFLite INT8: Aproximadamente 411.4 KB.
+2. Formato TFLite INT8: Aproximadamente 411.41 KB.
+3. Formato .h: Aproximadamente 421.29 KB.
 
 Arquivos Gerados:
 - mask_detector_light.keras: Pesos em precisão total.
 - mask_detector_light_int8.tflite: Modelo pronto para implementação via TensorFlow Lite Micro.
+- model_data.h: Modelo pronto para implementação na ESP32-CAM.
 
 ## Técnicas Aplicadas
 
@@ -103,7 +105,7 @@ Arquivos Gerados:
 - Dropout: Redução de co-dependência de neurônios.
 - Adam Optimizer: Com learning rate inicial de 1e-3.
 - ReduceLROnPlateau: Redução do fator de aprendizado caso a perda estagne por 5 épocas.
-- Early Stopping: Interrupção caso não haja melhora por 15 épocas.
+- Early Stopping: Interrupção caso não haja melhora por 20 épocas.
 
 ## Referências
 
