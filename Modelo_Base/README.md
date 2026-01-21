@@ -76,7 +76,7 @@ Abaixo os resultados típicos obtidos com a configuração de Alpha 0.25 e entra
 
 | Métrica | Treino | Validação | Teste Externo |
 |---|---|---|---|
-| Accuracy | ~93.3% | ~93.5% | ~94.6% |
+| Accuracy | ~94.49% | ~93.64% | ~96.56% |
 
 O gap reduzido entre treino e validação indica que as técnicas de Data Augmentation e a arquitetura simplificada foram eficazes contra o overfitting.
 
